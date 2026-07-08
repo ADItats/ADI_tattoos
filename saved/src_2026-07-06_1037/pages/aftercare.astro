@@ -1,0 +1,324 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import BookSection from '../components/BookSection.astro';
+---
+
+<Layout title="Aftercare | Art District Inc.">
+  <Nav currentPage="aftercare" />
+  <div class="page-title">
+    <div class="label">GUIDE</div>
+    <div class="flex">
+      <h1 class="display">Aftercare</h1>
+      <div class="sub label">Your ink is an investment. Protect it.</div>
+    </div>
+  </div>
+
+  <div class="timeline-section">
+    <div class="meta-label label">HEALING TIMELINE</div>
+    <div class="timeline-grid">
+      <div class="tl-item"><div class="tl-num stat">1–3</div><div class="tl-days label">DAYS</div><div class="tl-desc body-l">Raw & tender<br/>Most sensitive period</div></div>
+      <div class="tl-item"><div class="tl-num stat">4–7</div><div class="tl-days label">DAYS</div><div class="tl-desc body-l">Peeling & itching<br/>Do not scratch</div></div>
+      <div class="tl-item"><div class="tl-num stat">2–3</div><div class="tl-days label">WEEKS</div><div class="tl-desc body-l">Surface healed<br/>Deeper layers settling</div></div>
+      <div class="tl-item"><div class="tl-num stat">2–3</div><div class="tl-days label">MONTHS</div><div class="tl-desc body-l">Fully settled<br/>Color & lines locked in</div></div>
+    </div>
+  </div>
+
+  <section class="content-section">
+    <SectionTitle label="STEP BY STEP INSTRUCTIONS" />
+    <div class="steps-grid">
+      {[
+        { num: '01', label: 'WRAP REMOVAL', img: 'wrap_removal_ADI.png' },
+        { num: '02', label: 'WASHING', img: 'washing_ADI.png' },
+        { num: '03', label: 'MOISTURIZING', img: 'moisturizing_ADI.png' },
+        { num: '04', label: 'SUN PROTECTION', img: 'sun_protection_ADI.png' },
+      ].map(step => (
+        <div class="step-card">
+          <div class="step-header"><span class="step-num">{step.num}</span><span class="step-label h3">{step.label}</span></div>
+          <img src={"/" + step.img} alt={step.label} class="step-photo" />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="content-section">
+    <SectionTitle label="WHAT TO AVOID" />
+    <div class="avoid-grid">
+      {[
+        { label: 'SOAKING', desc: 'No pools, ocean or baths during healing' },
+        { label: 'PICKING', desc: 'Do not pick, scratch or peel' },
+        { label: 'DIRECT SUN', desc: 'No direct sunlight for minimum 3 weeks' },
+        { label: 'TIGHT CLOTHING', desc: 'Keep fabric away from fresh ink' },
+      ].map(item => (
+        <div class="avoid-item">
+          <div class="avoid-icon">✕</div>
+          <div class="avoid-label h3">{item.label}</div>
+          <div class="avoid-desc body-l">{item.desc}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="content-section">
+    <SectionTitle label="LONG TERM CARE" />
+    <div class="longterm-grid">
+      <div class="lt-card"><div class="lt-title h3">KEEP IT MOISTURIZED</div><div class="placeholder-box body-l">Hydrated skin keeps ink crisp for life. Moisturize daily with a fragrance-free lotion, especially after showering. Well-kept skin means sharper lines and richer color for years.</div></div>
+      <div class="lt-card"><div class="lt-title h3">SUN EXPOSURE</div><div class="placeholder-box body-l">The sun is your tattoo's #1 enemy — UV breaks pigment down and blurs your work over time. Apply SPF 50+ every time the piece will see sun, for the life of the tattoo.</div></div>
+      <div class="lt-card"><div class="lt-title h3">TOUCH UPS</div><div class="placeholder-box body-l">Minor fading or patchy spots after the first heal are normal. We offer one complimentary touch-up within 3 months of your session. Book through the same link and bring the healed piece in.</div></div>
+    </div>
+  </section>
+
+  <div class="concern-banner">
+    <div>
+      <div class="meta-label label">HAVE A CONCERN?</div>
+      <div class="placeholder-box body-l">If your tattoo shows signs of infection or unusual healing, please reach out directly</div>
+    </div>
+    <a href="/contact" class="btn">CONTACT US ›</a>
+  </div>
+
+  <div class="disclaimer small">Some redness and swelling is normal for a few days. If you notice spreading redness, pus, or a fever, seek medical attention. Always follow your artist's specific instructions.</div>
+
+  <BookSection />
+  <Footer />
+</Layout>
+
+<style>
+  .page-title {
+    padding: 40px 40px 30px;
+    border-bottom: 1.5px solid var(--border-light);
+    background: var(--card-bg);
+  }
+
+  .page-title .label {
+    font-family: var(--font-body);
+    color: var(--brand-orange);
+    margin-bottom: 12px;
+  }
+
+  .page-title .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .page-title h1 {
+    margin: 0;
+    color: var(--white);
+  }
+
+  .page-title .sub {
+    font-family: var(--font-body);
+    color: rgba(255,255,255,0.5);
+    flex-shrink: 0;
+  }
+
+  .timeline-section {
+    padding: 40px;
+    border-bottom: 1.5px solid var(--border-light);
+    background: var(--card-bg);
+  }
+
+  .meta-label {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    color: var(--brand-orange);
+    margin-bottom: 24px;
+  }
+
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border: 1.5px solid var(--border-light);
+  }
+
+  .tl-item {
+    padding: 24px;
+    border-right: 1.5px solid var(--border-light);
+    text-align: center;
+  }
+
+  .tl-item:last-child { border-right: none; }
+
+  .tl-num {
+    font-family: var(--font-display);
+    margin-bottom: 4px;
+    color: var(--white);
+  }
+
+  .tl-days {
+    font-family: var(--font-body);
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .tl-desc {
+    color: rgba(255,255,255,0.7);
+  }
+
+  .content-section {
+    padding: 60px 40px;
+    border-bottom: 1.5px solid var(--border-light);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .step-card {
+    border: 1.5px solid var(--border-light);
+    overflow: hidden;
+    background: var(--card-bg);
+  }
+
+  .step-header {
+    background: var(--near-black);
+    color: var(--white);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+  }
+
+  .step-label {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+  }
+
+  .step-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .placeholder-box {
+    background: var(--card-bg);
+    padding: 16px;
+    color: #c4c1bd;
+  }
+
+  .avoid-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .avoid-item {
+    border: 1.5px solid var(--border-light);
+    padding: 24px;
+    text-align: center;
+    background: var(--card-bg);
+  }
+
+  .avoid-icon {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--brand-orange);
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .avoid-label {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .avoid-desc {
+    color: #c4c1bd;
+  }
+
+  .longterm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .lt-card {
+    border-left: 3px solid var(--brand-orange);
+    padding: 20px 24px;
+    background: var(--card-bg);
+  }
+
+  .lt-title {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .concern-banner {
+    padding: 40px;
+    border-bottom: 1.5px solid var(--border-light);
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .concern-banner .placeholder-box {
+    margin-top: 8px;
+  }
+
+  .disclaimer {
+    font-family: var(--font-body);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 24px 40px;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border: 2px solid var(--brand-orange);
+    background: var(--brand-orange);
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn:hover {
+    background: transparent;
+    border-color: var(--brand-orange);
+    color: var(--brand-orange);
+  }
+
+  @media (max-width: 1024px) {
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .avoid-grid { grid-template-columns: 1fr 1fr; }
+    .longterm-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .page-title { padding: 24px 16px; }
+    .page-title .flex { flex-direction: column; align-items: flex-start; }
+    .timeline-section { padding: 24px 16px; }
+    .timeline-grid { grid-template-columns: 1fr 1fr; }
+    .tl-item:nth-child(2) { border-right: none; }
+    .tl-item:nth-child(1),
+    .tl-item:nth-child(2) { border-bottom: 1.5px solid var(--border-light); }
+    .content-section { padding: 40px 16px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .avoid-grid { grid-template-columns: 1fr; }
+    .longterm-grid { grid-template-columns: 1fr; }
+    .concern-banner { flex-direction: column; padding: 24px 16px; text-align: center; }
+  }
+</style>
