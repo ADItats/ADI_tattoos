@@ -1,0 +1,267 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import BookSection from '../components/BookSection.astro';
+---
+
+<Layout title="Artist | Art District Inc.">
+  <Nav currentPage="artist" />
+  <div class="page-title">
+    <div class="label">ARTIST</div>
+    <div class="flex">
+      <h1>Mike Traina</h1>
+      <div class="sub">Owner & lead artist · Art District Inc.</div>
+    </div>
+  </div>
+
+  <div class="artist-layout">
+    <div class="artist-portrait">
+      <img src="/ADI4.jpg" alt="Artist portrait" class="artist-img" />
+    </div>
+    <div class="artist-detail">
+      <div class="tags">
+        <span class="tag tag-lg">TATTOOS</span>
+        <span class="tag tag-lg">CUSTOM ART</span>
+        <span class="tag tag-lg">MURALS</span>
+      </div>
+      <div class="info-card invisible-card">
+        <div class="meta-label">ABOUT</div>
+        <div class="bio-text">
+          Mike Traina has spent 20 years turning stories into ink at Art District Inc., his <span class="accent">appointment-only</span> studio in Clearwater, FL. Clients often come to him carrying something meaningful — a portrait honoring someone they've lost, a design marking a turning point — and his realism work, especially portraiture, has become his calling card. It's his patience and genuine care that keep people coming back, making every session feel less like getting a tattoo and more like handing your story to someone who'll do it justice.
+        </div>
+      </div>
+      <div class="info-card invisible-card">
+        <div class="meta-label">CONTACT</div>
+        <div class="contact-info">
+          <div class="contact-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>miketraina@yahoo.com</span>
+          </div>
+          <div class="contact-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>@artdistrictinc</span>
+          </div>
+        </div>
+        <a href="/contact" class="btn btn-lg" style="width:100%;text-align:center">BOOK NOW</a>
+      </div>
+    </div>
+  </div>
+
+  <BookSection />
+  <Footer />
+</Layout>
+
+<style>
+  .page-title {
+    padding: 40px 40px 30px;
+    border-bottom: 1.5px solid var(--border-light);
+    background: var(--card-bg);
+  }
+
+  .page-title .label {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--brand-orange);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .page-title .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .page-title h1 {
+    margin: 0;
+    color: var(--white);
+  }
+
+  .page-title .sub {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    flex-shrink: 0;
+  }
+
+  .artist-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1.5px solid var(--border-light);
+  }
+
+  .artist-portrait {
+    border-right: 1.5px solid var(--border-light);
+    padding: 5%;
+    display: flex;
+  }
+
+  .artist-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .artist-detail {
+    padding: 40px;
+    color: var(--white);
+    border-left: 1.5px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .placeholder-img {
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .placeholder-box {
+    background: var(--card-bg);
+    padding: 20px;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 2;
+  }
+
+  .meta-label {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brand-orange);
+    margin-bottom: 20px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .tag {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border: 1.5px solid var(--border-light);
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .tag-lg {
+    font-size: 0.8rem;
+    padding: 8px 18px;
+    letter-spacing: 2px;
+    border-width: 1.5px;
+  }
+
+  .bio-text {
+    font-size: 20px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border: 1.5px solid var(--border-light);
+    background: var(--card-bg);
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-lg {
+    padding: 18px 36px;
+    border-width: 2px;
+    background: var(--brand-orange);
+    border-color: var(--brand-orange);
+  }
+
+  .btn-lg:hover {
+    background: transparent;
+    border-color: var(--brand-orange);
+    color: var(--brand-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(249, 92, 3, 0.3);
+  }
+
+  .btn:hover {
+    background: var(--brand-orange);
+    border-color: var(--brand-orange);
+    color: var(--white);
+  }
+
+  .info-card {
+    padding: 16px;
+  }
+
+  .visible-card {
+    border: 2px solid var(--border-light);
+    background: rgba(26,26,26,0.85);
+    padding: 32px;
+    margin-bottom: 8px;
+  }
+
+  .invisible-card {
+    border: none;
+    background: none;
+    padding: 32px 0;
+  }
+
+  .content-section {
+    padding: 60px 40px;
+    border-bottom: 1.5px solid var(--border-light);
+  }
+
+  @media (max-width: 1024px) {
+    .artist-layout { grid-template-columns: 1fr; }
+    .artist-portrait { border-right: none; }
+  }
+
+  @media (max-width: 600px) {
+    .page-title { padding: 24px 16px; }
+    .page-title .flex { flex-direction: column; align-items: flex-start; }
+    .page-title h1 { font-size: 24px; }
+    .artist-detail { padding: 24px 16px; }
+    .content-section { padding: 40px 16px; }
+    .placeholder-img[style*="height:460px"] { height: 300px !important; }
+  }
+</style>
