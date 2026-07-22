@@ -37,7 +37,7 @@ const gallery: GalleryItem[] = [
   { prefix: 'artwork', num: 5, category: 'mural' },
   { prefix: 'tattoos', num: 9, category: 'tattoo' },
   { prefix: 'artwork', num: 10, category: 'artwork' },
-  { prefix: 'tattoos', num: 11, category: 'tattoo' },
+  { prefix: 'tattoos', num: 11, category: 'artwork' },
 ];
 ---
 
@@ -53,12 +53,12 @@ const gallery: GalleryItem[] = [
 
   <div class="filter-bar">
     <div class="filter-group">
-      <span class="filter active" data-filter="all">ALL</span>
-      <span class="filter" data-filter="tattoo">TATTOOS</span>
+      <span class="filter" data-filter="all">ALL</span>
+      <span class="filter active" data-filter="tattoo">TATTOOS</span>
       <span class="filter" data-filter="mural">MURALS</span>
       <span class="filter" data-filter="artwork">ARTWORK</span>
     </div>
-    <div class="filter-count">{gallery.length} pieces</div>
+    <div class="filter-count">{gallery.filter(i => i.category === 'tattoo').length} pieces</div>
   </div>
 
   <div class="gallery-section masonry">
@@ -71,7 +71,7 @@ const gallery: GalleryItem[] = [
   </div>
 
   <div class="gallery-footer">
-    <div class="gallery-footer-count">— Showing <span id="visible-count">{gallery.length}</span> of {gallery.length} pieces —</div>
+    <div class="gallery-footer-count">— Showing <span id="visible-count">{gallery.filter(i => i.category === 'tattoo').length}</span> of {gallery.length} pieces —</div>
   </div>
 
   <div class="lightbox" id="lightbox">
@@ -82,6 +82,10 @@ const gallery: GalleryItem[] = [
     const filters = document.querySelectorAll('.filter');
     const items = document.querySelectorAll('.artwork-img');
     const countEl = document.getElementById('visible-count');
+
+    items.forEach(el => {
+      if (el.dataset.category !== 'tattoo') el.classList.add('hidden');
+    });
 
     filters.forEach(btn => {
       btn.addEventListener('click', () => {

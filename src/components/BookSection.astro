@@ -3,7 +3,7 @@
     <img src="/book_ADI.avif" alt="Your DREAMS Are Good Enough book cover" class="book-cover-img" />
     <div class="book-info">
       <h3>Your DREAMS Are Good Enough</h3>
-      <p>Check out the artist's other work — a children's book by Mike Traina</p>
+      <p>Check out the artist's other work — <span class="book-author">a children's book by Mike Traina</span></p>
     </div>
     <a href="https://www.amazon.com/Your-Dreams-Are-Good-Enough/dp/B0G1KPCFX8" class="book-cta" target="_blank" rel="noopener">LEARN MORE ›</a>
   </div>
@@ -51,10 +51,14 @@
     margin: 0;
   }
 
+  .book-info .book-author {
+    color: #5072d8;
+  }
+
   .book-cta {
     font-family: var(--font-body);
     font-weight: 600;
-    border: 1.5px solid var(--border-light);
+    border: 1.5px solid #5072d8;
     padding: 10px 24px;
     font-size: 12px;
     letter-spacing: 2px;
@@ -62,12 +66,14 @@
     cursor: pointer;
     white-space: nowrap;
     color: var(--white);
+    background: #5072d8;
     transition: all 0.2s;
   }
 
   .book-cta:hover {
-    background: var(--border-light);
-    color: var(--near-black);
+    background: var(--white);
+    color: #5072d8;
+    border-color: var(--white);
   }
 
   @media (max-width: 768px) {
