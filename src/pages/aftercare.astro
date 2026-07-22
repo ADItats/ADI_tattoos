@@ -1,0 +1,421 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import BookSection from '../components/BookSection.astro';
+---
+
+<Layout title="Aftercare | Art District Inc.">
+  <Nav currentPage="aftercare" />
+  <div class="page-title">
+    <div class="label">GUIDE</div>
+    <div class="flex">
+      <h1 class="display">Aftercare</h1>
+      <div class="sub label">Your ink is an investment. Protect it.</div>
+    </div>
+  </div>
+
+  <div class="timeline-section">
+    <div class="meta-label label">HEALING TIMELINE</div>
+    <div class="timeline-grid">
+      <div class="tl-item"><div class="tl-num stat">1–3</div><div class="tl-days label">DAYS</div><div class="tl-desc body-l">Raw & tender<br/>Most sensitive period</div></div>
+      <div class="tl-item"><div class="tl-num stat">4–7</div><div class="tl-days label">DAYS</div><div class="tl-desc body-l">Peeling & itching<br/>Do not scratch</div></div>
+      <div class="tl-item"><div class="tl-num stat">2–3</div><div class="tl-days label">WEEKS</div><div class="tl-desc body-l">Surface healed<br/>Deeper layers settling</div></div>
+      <div class="tl-item"><div class="tl-num stat">2–3</div><div class="tl-days label">MONTHS</div><div class="tl-desc body-l">Fully settled<br/>Color & lines locked in</div></div>
+    </div>
+  </div>
+
+  <section class="content-section">
+    <SectionTitle label="STEP BY STEP INSTRUCTIONS" />
+    <div class="steps-grid">
+      {[
+        { num: '01', label: 'WRAP REMOVAL', img: 'wrap_removal_ADI.png', desc: 'Remove the wrap after 2–4 hours. Gently rinse with warm water.' },
+        { num: '02', label: 'WASHING', img: 'washing_ADI.png', desc: 'Wash with antibacterial soap. Do not pat dry — let it air dry.' },
+        { num: '03', label: 'MOISTURIZING', img: 'moisturizing_ADI.png', desc: 'Apply an ointment as your artist recommends — I always recommend Aquaphor. After the first week, switch to a fragrance-free lotion; coconut oil is great.' },
+        { num: '04', label: 'SUN PROTECTION', img: 'sun_protection_ADI.png', desc: 'Keep your tattoo out of direct sunlight for at least 3 weeks. Apply SPF 50+ after healed.' },
+      ].map(step => (
+        <div class="step-card">
+          <div class="step-header"><span class="step-num">{step.num}</span><span class="step-label h3">{step.label}</span></div>
+          <img src={"/" + step.img} alt={step.label} class="step-photo" />
+          <div class="step-desc">{step.desc}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <div class="two-col-section">
+    <section class="content-section col-left">
+      <SectionTitle label="WHAT TO AVOID" />
+      <ul class="avoid-list">
+        {[
+          { label: 'SOAKING', desc: 'No pools, ocean or baths during healing' },
+          { label: 'PICKING', desc: 'Do not pick, scratch or peel' },
+          { label: 'DIRECT SUN', desc: 'No direct sunlight for minimum 3 weeks' },
+          { label: 'TIGHT CLOTHING', desc: 'Keep fabric away from fresh ink' },
+        ].map(item => (
+          <li class="avoid-item">
+            <span class="avoid-bullet">•</span>
+            <div>
+              <div class="avoid-label">{item.label}</div>
+              <div class="avoid-desc">{item.desc}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="content-section col-right">
+      <SectionTitle label="LONG TERM CARE" />
+      <div class="accordion">
+        <div class="acc-item">
+          <button class="acc-btn"><span>KEEP IT MOISTURIZED</span><span class="acc-arrow">▾</span></button>
+          <div class="acc-panel"><div class="acc-body">Hydrated skin keeps ink crisp for life. Moisturize daily with a fragrance-free lotion, especially after showering. Well-kept skin means sharper lines and richer color for years.</div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn"><span>SUN EXPOSURE</span><span class="acc-arrow">▾</span></button>
+          <div class="acc-panel"><div class="acc-body">The sun is your tattoo's #1 enemy — UV breaks pigment down and blurs your work over time. Apply SPF 50+ every time the piece will see sun, for the life of the tattoo.</div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-btn"><span>TOUCH UPS</span><span class="acc-arrow">▾</span></button>
+          <div class="acc-panel"><div class="acc-body">Minor fading or patchy spots after the first heal are normal. We offer one complimentary touch-up within 3 months of your session. Book through the same link and bring the healed piece in.</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="concern-banner">
+    <div>
+      <div class="meta-label label">HAVE A CONCERN?</div>
+      <div class="placeholder-box body-l">If your tattoo shows signs of infection or unusual healing, please reach out directly</div>
+    </div>
+    <a href="/contact" class="btn">CONTACT US ›</a>
+  </div>
+
+  <div class="disclaimer small">Some redness and swelling is normal for a few days. If you notice spreading redness, pus, or a fever, seek medical attention. Always follow your artist's specific instructions.</div>
+
+  <BookSection />
+  <Footer />
+</Layout>
+
+<style>
+  .page-title {
+    padding: 40px 40px 30px;
+    border-bottom: 1.5px solid var(--border-light);
+    background: var(--card-bg);
+  }
+
+  .page-title .label {
+    font-family: var(--font-body);
+    color: var(--brand-orange);
+    margin-bottom: 12px;
+  }
+
+  .page-title .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .page-title h1 {
+    margin: 0;
+    color: var(--white);
+  }
+
+  .page-title .sub {
+    font-family: var(--font-body);
+    color: rgba(255,255,255,0.5);
+    flex-shrink: 0;
+  }
+
+  .timeline-section {
+    padding: 40px;
+    border-bottom: 1.5px solid var(--border-light);
+    background: var(--card-bg);
+  }
+
+  .meta-label {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    color: var(--brand-orange);
+    margin-bottom: 24px;
+  }
+
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border: 1.5px solid var(--border-light);
+  }
+
+  .tl-item {
+    padding: 24px;
+    border-right: 1.5px solid var(--border-light);
+    text-align: center;
+  }
+
+  .tl-item:last-child { border-right: none; }
+
+  .tl-num {
+    font-family: var(--font-display);
+    margin-bottom: 4px;
+    color: var(--white);
+  }
+
+  .tl-days {
+    font-family: var(--font-body);
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .tl-desc {
+    color: rgba(255,255,255,0.7);
+  }
+
+  .content-section {
+    padding: 60px 40px;
+    border-bottom: 1.5px solid var(--border-light);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .step-card {
+    border: 1.5px solid var(--border-light);
+    overflow: hidden;
+    background: var(--card-bg);
+  }
+
+  .step-header {
+    background: var(--near-black);
+    color: var(--white);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+  }
+
+  .step-label {
+    font-family: var(--font-body);
+    text-transform: uppercase;
+  }
+
+  .step-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .step-desc {
+    padding: 14px 20px;
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: #c4c1bd;
+    background: var(--near-black);
+    border-top: 1.5px solid var(--border-light);
+  }
+
+  .placeholder-box {
+    background: var(--card-bg);
+    padding: 16px;
+    color: #c4c1bd;
+  }
+
+  .two-col-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1.5px solid var(--border-light);
+  }
+
+  .two-col-section .content-section {
+    border-bottom: none;
+  }
+
+  .col-left {
+    border-right: 1.5px solid var(--border-light);
+  }
+
+  .avoid-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .avoid-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .avoid-bullet {
+    font-size: 24px;
+    color: var(--brand-orange);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .avoid-label {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15.6px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .avoid-desc {
+    font-family: var(--font-body);
+    font-size: 16.8px;
+    line-height: 1.6;
+    color: #c4c1bd;
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .acc-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: var(--card-bg);
+    border: 1.5px solid var(--border-light);
+    border-left: 3px solid var(--brand-orange);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: left;
+  }
+
+  .acc-btn:hover {
+    background: var(--near-black);
+  }
+
+  .acc-arrow {
+    font-size: 12px;
+    transition: transform 0.25s;
+    color: var(--brand-orange);
+  }
+
+  .acc-item.open .acc-arrow {
+    transform: rotate(180deg);
+  }
+
+  .acc-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .acc-item.open .acc-panel {
+    max-height: 300px;
+  }
+
+  .acc-body {
+    padding: 16px 20px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: #c4c1bd;
+    border: 1.5px solid var(--border-light);
+    border-top: none;
+  }
+
+  .concern-banner {
+    padding: 40px;
+    border-bottom: 1.5px solid var(--border-light);
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .concern-banner .placeholder-box {
+    margin-top: 8px;
+  }
+
+  .disclaimer {
+    font-family: var(--font-body);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 24px 40px;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border: 2px solid var(--brand-orange);
+    background: var(--brand-orange);
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn:hover {
+    background: transparent;
+    border-color: var(--brand-orange);
+    color: var(--brand-orange);
+  }
+
+  @media (max-width: 1024px) {
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+    .two-col-section { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .page-title { padding: 24px 16px; }
+    .page-title .flex { flex-direction: column; align-items: flex-start; }
+    .timeline-section { padding: 24px 16px; }
+    .timeline-grid { grid-template-columns: 1fr 1fr; }
+    .tl-item:nth-child(2) { border-right: none; }
+    .tl-item:nth-child(1),
+    .tl-item:nth-child(2) { border-bottom: 1.5px solid var(--border-light); }
+    .two-col-section .content-section { padding: 40px 16px; }
+    .content-section { padding: 40px 16px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .two-col-section { grid-template-columns: 1fr; }
+    .col-left { border-right: none; }
+    .concern-banner { flex-direction: column; padding: 24px 16px; text-align: center; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.acc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.acc-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.acc-item.open').forEach(el => el.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
